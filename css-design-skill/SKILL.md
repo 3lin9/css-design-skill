@@ -7,6 +7,7 @@ description: >
   也适用于用户给出一个业务场景或手稿后要求生成完整 UI 实现代码的场景。
 references:
   - frontend-project-structure.md  # 创建项目结构规范
+  - style_guide.md       # 配色盘和风格说明
 license: Complete terms in LICENSE.txt
 ---
 
@@ -78,7 +79,7 @@ license: Complete terms in LICENSE.txt
 - **Table** - 表格组件，支持排序、筛选
 - **Divider** - 分割线
 - **Tooltip** - 文字提示
-- **Icon** - 图标组件
+- **Icon** - 图标组件, name为LogoBlock或LogoHorizontal可做logo使用
 
 ### 布局组件
 
@@ -86,7 +87,7 @@ license: Complete terms in LICENSE.txt
 - **Grid** / **GridItem** - 网格布局系统
 - **Layout** - 页面布局容器，包含：
   - **Header** - 顶部布局
-  - **Sider** - 侧边栏布局
+  - **Sider** - 侧边栏布局,搭配Sidebar侧边导航使用。
   - **Content** - 内容区域
 - **Sidebar** - 侧边菜单栏
 - **NavMenu** - 导航菜单（配置驱动）
@@ -127,8 +128,9 @@ license: Complete terms in LICENSE.txt
 
 - 弹性布局：使用 **Flex**，支持 `justify`、`align`、`gap`、`wrap` 等属性。
 - 网格布局：使用 **Grid** + **GridItem**，支持 `columns`、`gap`，`GridItem` 支持 `span` 跨列。
-- 页面整体布局：使用 **Layout** 组合 **Header** / **Sider** / **Content**。
-- 侧边菜单：使用 **Sidebar** 或 **NavMenu**（配置驱动）。
+- 页面整体布局：使用 **Layout** 组合 **Header** / **Sider** / **Content**, 支持响应式。可使用顶部双栏布局或侧边栏布局。
+- 侧边菜单：使用 **Sidebar**（配置驱动）。
+- 顶部导航：使用 **NavMenu**。
 
 ### 3) 导航与结构场景
 
@@ -140,14 +142,14 @@ license: Complete terms in LICENSE.txt
 
 ### 4) 反馈场景
 
-- 强提醒、确认操作：使用 **Modal**，支持 `Modal.confirm()`、`Modal.info()` 等函数式调用。
-- 轻提示、瞬时反馈：使用 **Toast**，支持 `Toast.success()`、`Toast.error()` 等函数式调用。
+- 强提醒、确认操作：使用 **Modal**，支持 `Modal.confirm()`、`Modal.info()`、`Modal.error()`、`Modal.warning()` 等函数式调用。
+- 轻提示、瞬时反馈：使用 **Toast**，支持 `Toast.show()`、`Toast.error()`、`Toast.warning()`、`Toast.info()`、`Toast.destroy()` 等函数式调用。
 - 悬浮快捷入口：使用 **FloatButton** 或 **FloatButtonGroup**。
 - 解释型悬浮提示：使用 **Tooltip**。
 
 ### 5) 数据展示场景
 
-- 表格数据：使用 **Table**，支持排序、筛选、分页、自定义列。
+- 表格数据：使用 **Table**，支持排序、筛选、分页、自定义列,如果使用分页则组件，请使用 `<Table pagination={{}} />` 配置分页参数，不要使用 `<pagination />`。
 - 内容分隔：使用 **Divider**。
 - 图标表达：使用 **Icon**。
 - 轮播内容：使用 **Carousel**。
